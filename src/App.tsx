@@ -1,16 +1,20 @@
 import { setPopupSize } from "@kontent-ai/custom-app-sdk";
 import { useState } from "react";
-import { useAppContext } from "./contexts/AppContext.tsx";
+import { useAppConfig, useAppContext } from "./contexts/AppContext.tsx";
 import "./App.css";
 
 const App = () => {
   const context = useAppContext();
+  const appConfig = useAppConfig();
   const [popupSizeStatus, setPopupSizeStatus] = useState<string>("");
   const [width, setWidth] = useState<number>(800);
   const [height, setHeight] = useState<number>(600);
 
   const handleResizePopup = async () => {
-    const response = await setPopupSize({ unit: "px", value: width }, { unit: "px", value: height });
+    const response = await setPopupSize(
+      { unit: "px", value: width },
+      { unit: "px", value: height },
+    );
 
     if (response.isError) {
       setPopupSizeStatus(`Error: ${response.code} - ${response.description}`);
@@ -69,6 +73,14 @@ const App = () => {
             {popupSizeStatus}
           </p>
         )}
+      </section>
+
+      <section className="section">
+        <h2>App Configuration</h2>
+        <p className="description">
+          The app configuration from <code>useAppConfig</code> hook.
+        </p>
+        <pre className="json-display">{JSON.stringify(appConfig, null, 2)}</pre>
       </section>
     </div>
   );

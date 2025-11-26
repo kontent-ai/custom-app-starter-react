@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "format": "biome format --write .",
     "format:check": "biome format .",
+    "biome:fix": "biome check --write .",
     "biome:check": "biome check ."
   },
   "dependencies": {

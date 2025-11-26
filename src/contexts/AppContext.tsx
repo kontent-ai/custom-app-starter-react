@@ -1,4 +1,4 @@
-import { observeCustomAppContext, type CustomAppContext } from "@kontent-ai/custom-app-sdk";
+import { type CustomAppContext, observeCustomAppContext } from "@kontent-ai/custom-app-sdk";
 import { createContext, type ReactNode, useContext, useEffect, useState } from "react";
 
 const AppContext = createContext<CustomAppContext | undefined>(undefined);
@@ -65,10 +65,11 @@ export const useAppContext = (): CustomAppContext => {
 /**
  * Hook to access only the app configuration from the context.
  *
- * @throws Error if used outside of AppContextProvider or if appConfig is not available
+ * @throws Error if used outside of AppContextProvider
  * @returns The app configuration object
  */
-export const useAppConfig = () => useAppContext().appConfig;
+export const useAppConfig = () =>
+  JSON.parse((useAppContext().appConfig as string | null) ?? "null") as unknown;
 
 interface UseCustomAppContextResult {
   context: CustomAppContext | null;
