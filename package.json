@@ -22,6 +22,7 @@
     "@kontent-ai/eslint-config": "^2.1.0",
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-basic-ssl": "^2.1.0",
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.17.0",
     "typescript": "~5.9.3",

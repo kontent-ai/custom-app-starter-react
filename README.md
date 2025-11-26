@@ -6,6 +6,7 @@ A React + TypeScript starter template for building [Kontent.ai custom apps](http
 
 - ✅ React 18 with TypeScript
 - ✅ Vite for fast development and builds
+- ✅ HTTPS enabled for local development (self-signed certificate)
 - ✅ @kontent-ai/custom-app-sdk integration
 - ✅ Custom hook for observing context changes
 - ✅ Example implementations of all SDK functions
@@ -42,7 +43,7 @@ pnpm dev
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`.
+The app will be available at `https://localhost:5173`. The dev server uses a self-signed certificate for HTTPS, which is required for custom apps. Your browser will show a security warning on first access - this is expected for local development.
 
 ### Build
 
