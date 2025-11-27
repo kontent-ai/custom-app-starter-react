@@ -5,10 +5,6 @@ A React + TypeScript starter template for building [Kontent.ai custom apps](http
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js lts and pnpm
-
 ### Installation
 
 ```bash
