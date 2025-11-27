@@ -7,13 +7,6 @@ interface AppContextProviderProps {
   readonly children: ReactNode;
 }
 
-/**
- * Provider component that subscribes to the custom app context once
- * and makes it available to all child components.
- *
- * Only renders children once the context is successfully loaded.
- * Handles loading and error states internally.
- */
 export const AppContextProvider = (props: AppContextProviderProps) => {
   const { context, isLoading, error } = useCustomAppContext();
 
@@ -46,12 +39,6 @@ export const AppContextProvider = (props: AppContextProviderProps) => {
   return <AppContext.Provider value={context}>{props.children}</AppContext.Provider>;
 };
 
-/**
- * Hook to access the full custom app context.
- *
- * @throws Error if used outside of AppContextProvider
- * @returns The complete CustomAppContext object
- */
 export const useAppContext = (): CustomAppContext => {
   const context = useContext(AppContext);
 
@@ -62,12 +49,6 @@ export const useAppContext = (): CustomAppContext => {
   return context;
 };
 
-/**
- * Hook to access only the app configuration from the context.
- *
- * @throws Error if used outside of AppContextProvider
- * @returns The app configuration object
- */
 export const useAppConfig = () => {
   const context = useAppContext();
 
