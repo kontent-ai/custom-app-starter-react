@@ -141,11 +141,7 @@ const createAppContext = <T extends readonly PageType[]>(acceptedPageTypes: T) =
   const useAppConfig = () => {
     const context = useAppContext();
 
-    try {
-      return JSON.parse((context.appConfig as string | null) ?? "null") as unknown;
-    } catch {
-      return null;
-    }
+    return context.appConfig;
   };
 
   return { AppContextProvider, useAppContext, useAppConfig } as const;
